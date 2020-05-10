@@ -1,3 +1,8 @@
+---
+title: 'tarifs'
+date: '2020-01-20'
+---
+
 # Tarifs
 
 | Cabanes                    | Première nuit | Seconde nuit hors Juillet/Août et jours fériés | Haute saison |

@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, useStaticQuery } from 'gatsby';
 
 import { device } from '../../utils/media';
 import Section from '../Section';
 import pinecone from '../../images/nos-cabanes/logo-pin_en_vert.jpg';
-import { getHtmlData } from '../../utils/data';
 
 const Wrapper = styled(Section)`
   position: relative;
@@ -84,33 +82,14 @@ const Pinecone = styled.img`
   }
 `;
 
-const ToKnow = () => {
-  const data = useStaticQuery(query);
-  const html = getHtmlData(data);
-
-  return (
-    <Wrapper>
-      <Content
-        id="a-savoir-avant-votre-sejour"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      <Pinecone src={pinecone} alt="Pomme de pain" />
-    </Wrapper>
-  );
-};
+const ToKnow = ({ id, htmlContent }) => (
+  <Wrapper>
+    <Content
+      id="a-savoir-avant-votre-sejour"
+      dangerouslySetInnerHTML={{ __html: htmlContent }}
+    />
+    <Pinecone src={pinecone} alt="Pomme de pain" />
+  </Wrapper>
+);
 
 export default ToKnow;
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: {
-        fields: {
-          slug: { eq: "/data/infos-pratiques/a-savoir-avant-votre-sejour/" }
-        }
-      }
-    ) {
-      ...HtmlContent
-    }
-  }
-`;

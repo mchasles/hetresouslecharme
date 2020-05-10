@@ -1,3 +1,8 @@
+---
+title: 'Suppléments'
+date: '2020-01-20'
+---
+
 # Suppléments
 
 ![Pack Romantique](../../images/pack-romantique.jpg) **Pack Romantique** : Profitez de votre séjour avec une ambiance romantique pour lui déclarer votre flamme, pétales de rose en soie, demi-bouteille de vin et bougies vous attendent à l'arrivée. **22€**

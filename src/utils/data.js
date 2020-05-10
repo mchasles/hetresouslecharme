@@ -6,3 +6,5 @@ export const getCabinData = data => ({
 });
 
 export const getHtmlData = data => data.allMarkdownRemark.edges[0]?.node.html;
+
+export const getHtml = data => data.edges[0].node.html;

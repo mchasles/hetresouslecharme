@@ -1,10 +1,8 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { device } from '../../utils/media';
 import Section from '../Section';
-import { getHtmlData } from '../../utils/data';
 
 const Wrapper = styled(Section)`
   table {
@@ -49,21 +47,8 @@ const Wrapper = styled(Section)`
   }
 `;
 
-const Meal = () => {
-  const data = useStaticQuery(query);
-  const html = getHtmlData(data);
-
-  return <Wrapper id="repas" dangerouslySetInnerHTML={{ __html: html }} />;
-};
+const Meal = ({ id, htmlContent }) => (
+  <Wrapper id={id} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+);
 
 export default Meal;
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { eq: "/data/infos-pratiques/repas/" } } }
-    ) {
-      ...HtmlContent
-    }
-  }
-`;

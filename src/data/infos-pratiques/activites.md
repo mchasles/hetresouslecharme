@@ -1,3 +1,8 @@
+---
+title: 'Activités'
+date: '2020-01-20'
+---
+
 # Activités
 
 ### Activités à faire sur place
