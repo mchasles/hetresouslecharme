@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
 import Img from 'gatsby-image/withIEPolyfill';
 
+import { getHtml } from '../utils/data';
+
 import Page from '../components/Page';
 import BookButton from '../components/BookButton';
 import EpiceaSouhait from '../components/nos-cabanes/EpiceaSouhait';
@@ -77,6 +79,7 @@ export default ({ data }) => {
   const bgImg = data.bgImg.childImageSharp.fluid;
   const logoImg = data.logoImg.childImageSharp.fixed;
   const panoramicImg = data.panoramicImg.childImageSharp.fluid;
+  const { epiceaSouhait, pinEnVert, houxBlond, desChesnaies } = data;
 
   const headings = data.allMarkdownRemark.edges[0]?.node.headings.reduce(
     (acc, { depth, value }) => {
@@ -113,10 +116,10 @@ export default ({ data }) => {
           <BookButtonStyled />
           <Heading2 dangerouslySetInnerHTML={{ __html: headings[2] }} />
         </SectionPanoramic>
-        <EpiceaSouhait />
-        <PinEnVert />
-        <HouxBlond />
-        <DesChesnaies />
+        <EpiceaSouhait htmlContent={getHtml(epiceaSouhait)} />
+        <PinEnVert htmlContent={getHtml(pinEnVert)} />
+        <HouxBlond htmlContent={getHtml(houxBlond)} />
+        <DesChesnaies htmlContent={getHtml(desChesnaies)} />
       </Page>
     </ModalProvider>
   );
@@ -159,6 +162,26 @@ export const query = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+    }
+    desChesnaies: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/data/nos-cabanes/des-chesnaies/" } } }
+    ) {
+      ...CabinContent
+    }
+    pinEnVert: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/data/nos-cabanes/pin-en-vert/" } } }
+    ) {
+      ...CabinContent
+    }
+    epiceaSouhait: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/data/nos-cabanes/epicea-souhait/" } } }
+    ) {
+      ...CabinContent
+    }
+    houxBlond: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/data/nos-cabanes/houx-blond/" } } }
+    ) {
+      ...CabinContent
     }
   }
 `;

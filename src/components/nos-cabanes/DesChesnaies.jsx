@@ -2,18 +2,18 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Cabin from '../Cabin';
-import { getCabinData } from '../../utils/data';
+import { getCabinImages } from '../../utils/data';
 
-const DesChesnaies = () => {
+const DesChesnaies = ({ htmlContent }) => {
   const data = useStaticQuery(query);
-  const { html, img, logo, photos } = getCabinData(data);
+  const { img, logo, photos } = getCabinImages(data);
 
   return (
     <Cabin
       id="des-chesnaies"
       title="Des Chesnaies"
       reverse
-      html={html}
+      html={htmlContent}
       img={img}
       logo={logo}
       photos={photos}
@@ -25,11 +25,6 @@ export default DesChesnaies;
 
 const query = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { eq: "/data/nos-cabanes/des-chesnaies/" } } }
-    ) {
-      ...CabinContent
-    }
     img: file(relativePath: { eq: "images/nos-cabanes/des_chesnaies.jpg" }) {
       ...CabinImage
     }

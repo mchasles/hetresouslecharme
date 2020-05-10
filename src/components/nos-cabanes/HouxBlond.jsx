@@ -2,17 +2,17 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Cabin from '../Cabin';
-import { getCabinData } from '../../utils/data';
+import { getCabinImages } from '../../utils/data';
 
-const HouxBlond = () => {
+const HouxBlond = ({ htmlContent }) => {
   const data = useStaticQuery(query);
-  const { html, img, logo, photos } = getCabinData(data);
+  const { img, logo, photos } = getCabinImages(data);
 
   return (
     <Cabin
       id="houx-blond"
       title="Houx Blond"
-      html={html}
+      html={htmlContent}
       img={img}
       logo={logo}
       photos={photos}
@@ -24,11 +24,6 @@ export default HouxBlond;
 
 const query = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { eq: "/data/nos-cabanes/houx-blond/" } } }
-    ) {
-      ...CabinContent
-    }
     img: file(relativePath: { eq: "images/nos-cabanes/houx_blond.jpg" }) {
       ...CabinImage
     }

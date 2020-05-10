@@ -1,7 +1,6 @@
-export const getCabinData = data => ({
+export const getCabinImages = data => ({
   img: data.img.childImageSharp.fluid,
   logo: data.logo.childImageSharp.fluid,
-  html: data.allMarkdownRemark.edges[0]?.node.html,
   photos: data.photos.edges,
 });
 
