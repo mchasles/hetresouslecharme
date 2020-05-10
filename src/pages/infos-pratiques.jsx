@@ -17,25 +17,26 @@ const Text = styled.span`
   margin-bottom: -12%;
 `;
 
-export default ({ data }) => (
-  <Page bgImgs={false}>
-    <PageHeader page="infos">
-      <Text>Infos</Text> Pratiques
-    </PageHeader>
-    <ToKnow
-      id="a-savoir-avant-votre-sejour"
-      htmlContent={getHtml(data.toKnowData)}
-    />
-    <Prices id="tarifs" htmlContent={getHtml(data.pricesData)} />
-    <Meals id="repas" htmlContent={getHtml(data.mealData)} />
-    <Extras id="supplements" htmlContent={getHtml(data.extrasData)} />
-    <Activities id="activites" htmlContent={getHtml(data.activitiesData)} />
-  </Page>
-);
+export default ({ data }) => {
+  const { toKnow, prices, meals, extras, activities } = data;
+
+  return (
+    <Page bgImgs={false}>
+      <PageHeader page="infos">
+        <Text>Infos</Text> Pratiques
+      </PageHeader>
+      <ToKnow id="a-savoir-avant-votre-sejour" htmlContent={getHtml(toKnow)} />
+      <Prices id="tarifs" htmlContent={getHtml(prices)} />
+      <Meals id="repas" htmlContent={getHtml(meals)} />
+      <Extras id="supplements" htmlContent={getHtml(extras)} />
+      <Activities id="activites" htmlContent={getHtml(activities)} />
+    </Page>
+  );
+};
 
 export const query = graphql`
   query {
-    toKnowData: allMarkdownRemark(
+    toKnow: allMarkdownRemark(
       filter: {
         fields: {
           slug: { eq: "/data/infos-pratiques/a-savoir-avant-votre-sejour/" }
@@ -44,22 +45,22 @@ export const query = graphql`
     ) {
       ...HtmlContent
     }
-    pricesData: allMarkdownRemark(
+    prices: allMarkdownRemark(
       filter: { fields: { slug: { eq: "/data/infos-pratiques/tarifs/" } } }
     ) {
       ...HtmlContent
     }
-    mealData: allMarkdownRemark(
+    meals: allMarkdownRemark(
       filter: { fields: { slug: { eq: "/data/infos-pratiques/repas/" } } }
     ) {
       ...HtmlContent
     }
-    extrasData: allMarkdownRemark(
+    extras: allMarkdownRemark(
       filter: { fields: { slug: { eq: "/data/infos-pratiques/supplements/" } } }
     ) {
       ...HtmlContent
     }
-    activitiesData: allMarkdownRemark(
+    activities: allMarkdownRemark(
       filter: { fields: { slug: { eq: "/data/infos-pratiques/activites/" } } }
     ) {
       ...HtmlContent
