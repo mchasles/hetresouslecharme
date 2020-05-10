@@ -5,7 +5,7 @@ import Section from '../Section';
 import franceBleu from '../../images/qui-sommes-nous/france_bleu_limousin_logo.png';
 import logosPresse from '../../images/qui-sommes-nous/logos_presse.png';
 
-const Wrapper = styled(Section)`
+const SectionMedias = styled(Section)`
   p {
     margin-bottom: 16px;
     text-align: center;
@@ -70,9 +70,9 @@ const Video = styled.div`
   }
 `;
 
-const Medias = () => {
+const Medias = ({ id }) => {
   return (
-    <Wrapper id="on-parle-de-nous">
+    <SectionMedias id={id}>
       <h1>On parle de nous</h1>
       <MediaImg>
         <p>Reportage radiophonique France Bleu Limousin</p>
@@ -198,7 +198,7 @@ const Medias = () => {
         </p>
         <img className="logos-presse" alt="Logos Presse" src={logosPresse} />
       </MediaImg>
-    </Wrapper>
+    </SectionMedias>
   );
 };
 

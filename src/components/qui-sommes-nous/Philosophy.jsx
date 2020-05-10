@@ -1,9 +1,9 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
+
 import { device } from '../../utils/media';
+
 import Section from '../Section';
-import { getHtmlData } from '../../utils/data';
 
 const Wrapper = styled(Section)`
   display: flex;
@@ -36,30 +36,8 @@ const Wrapper = styled(Section)`
   }
 `;
 
-const Philosophy = () => {
-  const data = useStaticQuery(query);
-  const html = getHtmlData(data);
-
-  return (
-    <Wrapper
-      id="philosophie-des-cabanes"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  );
-};
+const Philosophy = ({ id, htmlContent }) => (
+  <Wrapper id={id} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+);
 
 export default Philosophy;
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: {
-        fields: {
-          slug: { eq: "/data/qui-sommes-nous/philosophie-des-cabanes/" }
-        }
-      }
-    ) {
-      ...HtmlContent
-    }
-  }
-`;

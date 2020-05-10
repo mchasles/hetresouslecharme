@@ -1,5 +1,8 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
+
+import { getHtml } from '../utils/data';
 
 import Page from '../components/Page';
 import PageHeader from '../components/PageHeader';
@@ -12,15 +15,41 @@ const Text = styled.span`
   margin-bottom: -8%;
 `;
 
-export default () => {
+export default ({ data }) => {
+  const { introducing, philosophy } = data;
+
   return (
     <Page bgImgs={false}>
       <PageHeader page="intro">
         <Text>Qui</Text> Sommes Nous ?
       </PageHeader>
-      <Introducing />
-      <Philosophy />
-      <Medias />
+      <Introducing id="qui-sommes-nous" htmlContent={getHtml(introducing)} />
+      <Philosophy
+        id="philosophie-des-cabanes"
+        htmlContent={getHtml(philosophy)}
+      />
+      <Medias id="on-parle-de-nous" />
     </Page>
   );
 };
+
+export const query = graphql`
+  query {
+    introducing: allMarkdownRemark(
+      filter: {
+        fields: { slug: { eq: "/data/qui-sommes-nous/presentation/" } }
+      }
+    ) {
+      ...HtmlContent
+    }
+    philosophy: allMarkdownRemark(
+      filter: {
+        fields: {
+          slug: { eq: "/data/qui-sommes-nous/philosophie-des-cabanes/" }
+        }
+      }
+    ) {
+      ...HtmlContent
+    }
+  }
+`;
