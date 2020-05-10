@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { device } from '../../utils/media';
 import Section from '../Section';
 
-const Wrapper = styled(Section)`
+const SectionMeals = styled(Section)`
   table {
     margin-right: 0 0 16px 0;
 
@@ -47,8 +47,8 @@ const Wrapper = styled(Section)`
   }
 `;
 
-const Meal = ({ id, htmlContent }) => (
-  <Wrapper id={id} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+const Meals = ({ id, htmlContent }) => (
+  <SectionMeals id={id} dangerouslySetInnerHTML={{ __html: htmlContent }} />
 );
 
-export default Meal;
+export default Meals;

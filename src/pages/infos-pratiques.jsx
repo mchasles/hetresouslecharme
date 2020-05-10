@@ -8,7 +8,7 @@ import Page from '../components/Page';
 import PageHeader from '../components/PageHeader';
 import ToKnow from '../components/infos-pratiques/ToKnow';
 import Prices from '../components/infos-pratiques/Prices';
-import Meal from '../components/infos-pratiques/Meal';
+import Meals from '../components/infos-pratiques/Meals';
 import Extras from '../components/infos-pratiques/Extras';
 import Activities from '../components/infos-pratiques/Activities';
 
@@ -27,7 +27,7 @@ export default ({ data }) => (
       htmlContent={getHtml(data.toKnowData)}
     />
     <Prices id="tarifs" htmlContent={getHtml(data.pricesData)} />
-    <Meal id="repas" htmlContent={getHtml(data.mealData)} />
+    <Meals id="repas" htmlContent={getHtml(data.mealData)} />
     <Extras id="supplements" htmlContent={getHtml(data.extrasData)} />
     <Activities id="activites" htmlContent={getHtml(data.activitiesData)} />
   </Page>
