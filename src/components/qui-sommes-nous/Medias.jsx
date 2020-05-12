@@ -55,8 +55,8 @@ const Video = styled.div`
   padding-bottom: 54.25%;
   height: 0;
   background-color: black;
-  border: 6px solid rgb(165, 168, 84);
-  border-radius: 8px;
+  border: 12px solid #eee;
+  box-shadow: 1px 1px 4px #bbb;
 
   video,
   iframe {
