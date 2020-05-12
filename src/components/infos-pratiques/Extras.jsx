@@ -1,21 +1,62 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { device } from '../../utils/media';
 import Section from '../Section';
 
 const SectionExtras = styled(Section)`
-  .gatsby-resp-image-wrapper {
-    float: left;
-    width: 34%;
-    margin: 0 24px 24px 0 !important;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 
+  h1,
   p {
-    clear: both;
+    width: 100%;
   }
 
-  table {
-    margin-top: 16px;
+  p:nth-child(2) {
+    order: 1;
+    padding: 0 48px;
+    margin: 0 0 8px 0;
+  }
+
+  p:nth-child(3) {
+    box-sizing: border-box;
+    order: 2;
+    margin: 0 0 56px 0;
+  }
+
+  p:nth-child(4) {
+    order: 4;
+    margin: 0;
+  }
+
+  p:nth-child(5) {
+    order: 3;
+    margin: 0 0 8px 0;
+  }
+
+  @media ${device.mobileL} {
+    p:nth-child(2) {
+      width: 34%;
+      padding: 0;
+    }
+
+    p:nth-child(3) {
+      width: 66%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    p:nth-child(4) {
+      order: 3;
+      width: 58%;
+    }
+
+    p:nth-child(5) {
+      order: 4;
+      width: 42%;
+    }
   }
 `;
 
