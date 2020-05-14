@@ -37,13 +37,12 @@ const SectionMeals = styled(Section)`
           height: 0%;
           border-top: 1px dotted #aaa;
           left: 8px;
-          right: 0;
+          right: 8px;
           top: 50%;
         }
       }
       strong:nth-child(2) {
-        width: 64px;
-        text-align: center;
+        text-align: right;
       }
     }
     li:nth-child(8) {
