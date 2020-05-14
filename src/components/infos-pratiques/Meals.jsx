@@ -6,43 +6,48 @@ import Section from '../Section';
 
 const SectionMeals = styled(Section)`
   table {
-    margin-right: 0 0 16px 0;
+    width: 100%;
 
-    & + table {
-      margin-top: 16px;
-    }
-    th,
-    td {
+    margin-bottom: 48px;
+    text-align: center;
+    th {
       text-align: center;
     }
-
-    @media ${device.tablet} {
-      float: left;
-
-      width: 47%;
-      margin: 0 0 32px auto;
-
-      & + table {
-        margin: 0 auto 24px 6%;
-        & + p + h3 + table {
-          width: 56%;
-          & + table {
-            width: 38%;
-          }
-        }
-      }
+    strong {
+      font-weight: 100;
+      font-style: italic;
+      color: rgba(60, 50, 40, 0.6);
     }
-  }
-
-  h3 {
-    clear: both;
-    text-align: center;
-    margin: 12px 0;
   }
 
   p {
-    @media ${device.tablet} {
-      clear: both;
+    text-align: center;
+  }
+
+  ul {
+    width: 100%;
+    li {
+      display: flex;
+      strong:first-child {
+        position: relative;
+        flex-grow: 2;
+        &::after {
+          position: absolute;
+          content: ' ';
+          height: 0%;
+          border-top: 1px dotted #aaa;
+          left: 8px;
+          right: 0;
+          top: 50%;
+        }
+      }
+      strong:nth-child(2) {
+        width: 64px;
+        text-align: center;
+      }
+    }
+    li:nth-child(8) {
+      font-weight: bold;
     }
   }
 `;
