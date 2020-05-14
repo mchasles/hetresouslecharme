@@ -16,6 +16,7 @@
     "babel-plugin-styled-components": "^1.10.6",
     "classnames": "^2.2.6",
     "gatsby": "^2.15.29",
+    "gatsby-cli": "^2.12.19",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-sharp": "^2.3.13",
@@ -28,7 +29,9 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
