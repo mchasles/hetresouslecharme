@@ -130,9 +130,10 @@ const Page = ({ children, bgImgs = true }) => (
               name="description"
               content={data.site.siteMetadata.description}
             />
-            <meta name="keywords" content="" />
-            <meta name="robots" content="noindex" />
-            <meta name="googlebot" content="noindex" />
+            <meta
+              name="keywords"
+              content="Hetre sous le charme, Cabanes, perchees, arbres, Correze, Dordogne, hetresouslecharme.com, location, cabane, arbre, Le Bourg, Saint Martial, Entraygues, vacances, nature."
+            />
           </Helmet>
           <Wrapper id="main">
             <GlobalStyle />
