@@ -7,7 +7,7 @@ date: '2020-01-20'
 
 ![Contact](../images/contact.jpg)
 
-- **Adresse :** 12, Le Bourg, 19400, St Martial-Entraygues
+- **Adresse :** 26, Le Bourg, 19400, St Martial-Entraygues
 - **Mail :** hetresouslecharme@outlook.com
 - **Tel :** 06 31 42 44 39
 
