@@ -18,13 +18,7 @@ date: '2020-01-20'
 | --------------------------------------------------------------------------------------------------------------------------------- |
 | Variations saisonnières de : terrine et craquelins, tarte salée accompagnée d’une salade composée, fromages (Cantal, St Nectaire) |
 | Dessert gourmand du jour en supplément : 5€ par personne                                                                          |
-| **Disponible le midi et le soir (du 1er mai au 30 septembre)**                                                                    |
-
-| Menu Plaisir de balade : pique-nique à récupérer à l’accueil<br>17€ pour 2 personnes |
-| ------------------------------------------------------------------------------------ |
-| Sandwich au pain de mie maison (différentes garnitures en fonction du marché)        |
-| Chips de légumes, dessert                                                            |
-| **Disponible uniquement le midi**                                                    |
+| **Disponible le midi et le soir (du 1er mai au 30 septembre)**                                                                    |                                                    |
 
 Les produits sont issus des **producteurs de la région et cuisinés sur place le jour de votre repas, tout est fait maison**.
 
