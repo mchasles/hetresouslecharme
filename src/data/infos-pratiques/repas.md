@@ -16,7 +16,7 @@ date: '2020-01-20'
 
 | Menu Plaisir estival : repas froid livré à la cabane<br>35€ pour 2 personnes                                                      |
 | --------------------------------------------------------------------------------------------------------------------------------- |
-| Variations saisonnières de : terrine et craquelins, tarte salée accompagnée d’une salade composée, fromages (Cantal, St Nectaire) |
+| Variations saisonnières de tarte salée accompagnée d’une salade composée, fromages (Cantal, St Nectaire) |
 | Dessert gourmand du jour en supplément : 5€ par personne                                                                          |
 | **Disponible le midi et le soir (du 1er mai au 30 septembre)**                                                                    |                                                    |
 
