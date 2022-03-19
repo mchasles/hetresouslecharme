@@ -15,5 +15,4 @@ Hêtre sous le Charme un logement éco - responsable qui s'engage à :
 - préserver la faune et la flore locales
 - sensibiliser sa clientèle
 
-[[logos]]
-| ![Logos](../../images/philosophy-logos.png)
+![Logos](../../images/philosophy-logos.png)

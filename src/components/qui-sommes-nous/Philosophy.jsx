@@ -9,13 +9,6 @@ const Wrapper = styled(Section)`
   display: flex;
   flex-wrap: wrap;
 
-  .logos {
-    flex-basis: 100%;
-    @media ${device.mobileL} {
-      flex-basis: 40%;
-    }
-  }
-
   h1,
   p {
     flex-basis: 100%;
@@ -28,6 +21,12 @@ const Wrapper = styled(Section)`
       flex-basis: 56%;
       margin-right: 4%;
     }
+    & + p {
+    flex-basis: 100%;
+    @media ${device.mobileL} {
+      flex-basis: 40%;
+    }
+  }
   }
 
   li {
