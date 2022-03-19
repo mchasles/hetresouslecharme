@@ -15,7 +15,7 @@ const Text = styled.span`
   margin-bottom: -8%;
 `;
 
-export default ({ data }) => {
+export default function quiSommesNousPage({ data }) {
   const { introducing, philosophy } = data;
 
   return (
@@ -31,7 +31,7 @@ export default ({ data }) => {
       <Medias id="on-parle-de-nous" />
     </Page>
   );
-};
+}
 
 export const query = graphql`
   query {

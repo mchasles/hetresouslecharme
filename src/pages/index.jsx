@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import Img from 'gatsby-image/withIEPolyfill';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { getHtml } from '../utils/data';
 
@@ -18,7 +18,7 @@ const Section = styled.section`
   height: 100vh;
 `;
 
-const BgImg = styled(Img)`
+const BgImg = styled(GatsbyImage)`
   height: 100%;
 `;
 
@@ -75,10 +75,10 @@ const Heading2 = styled.h2`
   flex-grow: 1;
 `;
 
-export default ({ data }) => {
-  const bgImg = data.bgImg.childImageSharp.fluid;
-  const logoImg = data.logoImg.childImageSharp.fixed;
-  const panoramicImg = data.panoramicImg.childImageSharp.fluid;
+export default function homePage({ data }) {
+  const bgImg = data.bgImg.childImageSharp.gatsbyImageData;
+  const logoImg = data.logoImg.childImageSharp.gatsbyImageData;
+  const panoramicImg = data.panoramicImg.childImageSharp.gatsbyImageData;
   const { epiceaSouhait, pinEnVert, houxBlond, desChesnaies } = data;
 
   const headings = data.allMarkdownRemark.edges[0]?.node.headings.reduce(
@@ -95,24 +95,26 @@ export default ({ data }) => {
       <Page bgImgs={false} marginBottom>
         <Section id="nos-cabanes">
           <LogoWrapper>
-            <Img
-              fixed={logoImg}
-              fadeIn={false}
-              durationFadeIn={50000}
+            <GatsbyImage
+              image={logoImg}
               objectFit="contain"
               style={{ width: '50vw' }}
+              alt="Logo Hêtre Sous le Charme"
             />
             <BookButtonStyled />
           </LogoWrapper>
           <BgImg
-            fluid={bgImg}
+            alt="Hêtre Sous le Charme"
+            image={bgImg}
             objectPosition="50% 100%"
-            durationFadeIn={1000}
           />
         </Section>
         <SectionPanoramic>
           <Heading1 dangerouslySetInnerHTML={{ __html: headings[1] }} />
-          <Img fluid={panoramicImg} />
+          <GatsbyImage
+            image={panoramicImg}
+            alt="Vue panoramique sur la Dordogne"
+          />
           <BookButtonStyled />
           <Heading2 dangerouslySetInnerHTML={{ __html: headings[2] }} />
         </SectionPanoramic>
@@ -123,10 +125,10 @@ export default ({ data }) => {
       </Page>
     </ModalProvider>
   );
-};
+}
 
 export const query = graphql`
-  query {
+  {
     allMarkdownRemark(
       filter: { fields: { slug: { eq: "/data/panoramic/" } } }
     ) {
@@ -141,26 +143,17 @@ export const query = graphql`
     }
     bgImg: file(relativePath: { eq: "images/home.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2880) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
       }
     }
     logoImg: file(relativePath: { eq: "images/logo_white.png" }) {
       childImageSharp {
-        fixed(width: 300) {
-          src
-          srcSet
-          width
-          height
-        }
+        gatsbyImageData(width: 300, placeholder: BLURRED, layout: FIXED)
       }
     }
     panoramicImg: file(relativePath: { eq: "images/panoramic.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2880) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     desChesnaies: allMarkdownRemark(

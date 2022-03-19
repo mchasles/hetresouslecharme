@@ -17,7 +17,7 @@ const Text = styled.span`
   margin-bottom: -12%;
 `;
 
-export default ({ data }) => {
+export default function infosPratiquesPage({ data }) {
   const { toKnow, prices, meals, extras, activities } = data;
 
   return (
@@ -32,7 +32,7 @@ export default ({ data }) => {
       <Activities id="activites" htmlContent={getHtml(activities)} />
     </Page>
   );
-};
+}
 
 export const query = graphql`
   query {

@@ -27,9 +27,7 @@ export const cabinContentFragment = graphql`
 export const cabinImageFragment = graphql`
   fragment CabinImage on File {
     childImageSharp {
-      fluid(maxWidth: 2880, quality: 70) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(quality: 70, layout: FULL_WIDTH)
     }
   }
 `;
@@ -37,9 +35,7 @@ export const cabinImageFragment = graphql`
 export const cabinLogoFragment = graphql`
   fragment CabinLogo on File {
     childImageSharp {
-      fluid(maxWidth: 360) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 360, layout: CONSTRAINED)
     }
   }
 `;
@@ -50,14 +46,10 @@ export const cabinPhotosFragment = graphql`
       node {
         name
         photo: childImageSharp {
-          fluid(maxWidth: 1680, quality: 70) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(quality: 70, layout: FULL_WIDTH)
         }
         thumb: childImageSharp {
-          fluid(maxWidth: 160, quality: 70) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(quality: 70, width: 160, layout: CONSTRAINED)
         }
       }
     }

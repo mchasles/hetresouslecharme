@@ -1,21 +1,21 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import Img from 'gatsby-image/withIEPolyfill';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { device } from '../utils/media';
 import BookButton from './BookButton';
 import Photos from './Photos';
 
-const Cabin = ({ id, title, reverse = false, html, img, logo, photos }) => {
+const Cabin = ({ id, title, reverse = false, html, img, photos }) => {
   return (
     <Section id={id} reverse={reverse}>
       <Content>
         <Description dangerouslySetInnerHTML={{ __html: html }} />
         <BookCabinButton />
-        <Photos photos={photos} />
+        <Photos title={title} photos={photos} />
       </Content>
-      <BgImg fluid={img} objectFit="contain" />
+      <BgImg image={img} objectFit="contain" alt={title} />
     </Section>
   );
 };
@@ -41,7 +41,7 @@ const Section = styled.section`
   }
 `;
 
-const BgImg = styled(Img)`
+const BgImg = styled(GatsbyImage)`
   z-index: 2;
 
   @media ${device.mobileL} {

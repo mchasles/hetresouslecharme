@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Modal } from './Modal';
-import Img from 'gatsby-image/withIEPolyfill';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { device } from '../utils/media';
 
-const Photos = ({ photos: photosProp }) => {
+const Photos = ({ title, photos: photosProp }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,15 +16,15 @@ const Photos = ({ photos: photosProp }) => {
       ({
         node: {
           name,
-          photo: { fluid: photo },
-          thumb: { fluid: thumb },
+          photo: { gatsbyImageData: photo },
+          thumb: { gatsbyImageData: thumb },
         },
       }) => ({ name, photo, thumb })
     )
     .sort((a, b) => a.name - b.name);
 
   const onArrowLeft = useCallback(
-    e => {
+    (e) => {
       setIsLoading(true);
       e.stopPropagation();
       setCurrentPhotoIndex(
@@ -35,7 +35,7 @@ const Photos = ({ photos: photosProp }) => {
   );
 
   const onArrowRight = useCallback(
-    e => {
+    (e) => {
       setIsLoading(true);
       e.stopPropagation();
       setCurrentPhotoIndex(
@@ -46,7 +46,7 @@ const Photos = ({ photos: photosProp }) => {
   );
 
   const keyPressListener = useCallback(
-    e => {
+    (e) => {
       if (e?.key === 'ArrowRight') {
         onArrowRight(e);
       } else if (e?.key === 'ArrowLeft') {
@@ -71,22 +71,23 @@ const Photos = ({ photos: photosProp }) => {
   }, [isModalOpen, keyPressListener, onArrowRight, onArrowLeft]);
 
   const currentPhoto = photos[currentPhotoIndex].photo;
-  const { aspectRatio } = currentPhoto;
+  const { width, height } = currentPhoto;
+  const aspectRatio = width / height;
 
   return (
     <Thumbnails>
       {photos.slice(0, 3).map(({ name, thumb }, index) => (
-        <ThumnailButton
+        <ThumbnailButton
           key={name}
           type="button"
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             setCurrentPhotoIndex(index);
             setIsModalOpen(true);
           }}
         >
-          <Thumbnail fluid={thumb} />
-        </ThumnailButton>
+          <Thumbnail image={thumb} alt={title} />
+        </ThumbnailButton>
       ))}
       {isModalOpen && (
         <Modal onOverlayClick={() => setIsModalOpen(false)}>
@@ -109,12 +110,11 @@ const Photos = ({ photos: photosProp }) => {
                 />
               </StyledSpinner>
             ) : null}
-            <Img
-              fluid={currentPhoto}
-              fadeIn={false}
-              durationFadeIn={1000}
+            <GatsbyImage
+              image={currentPhoto}
               objectFit="contain"
               onLoad={() => setIsLoading(false)}
+              alt={title}
             />
           </PhotoWrapper>
           <NavButtonRight type="button" onClick={onArrowRight} />
@@ -124,7 +124,7 @@ const Photos = ({ photos: photosProp }) => {
   );
 };
 
-const ThumnailButton = styled.button`
+const ThumbnailButton = styled.button`
   border: none;
   padding: 0;
   background-color: transparent;
@@ -252,7 +252,7 @@ const Thumbnails = styled.div`
   flex-wrap: wrap;
 `;
 
-const Thumbnail = styled(Img)`
+const Thumbnail = styled(GatsbyImage)`
   width: 68px;
   height: 68px;
   border-radius: 68px;

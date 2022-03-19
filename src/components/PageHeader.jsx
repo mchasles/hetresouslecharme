@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
-import Img from 'gatsby-image/withIEPolyfill';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Wrapper = styled.div`
   position: relative;
@@ -34,34 +34,30 @@ const PageHeader = ({ children, page }) => {
   const data = useStaticQuery(query);
   const panoramicImg =
     data[page === 'infos' ? 'panoramicImgInfos' : 'panoramicImgIntro']
-      .childImageSharp.fluid;
+      .childImageSharp.gatsbyImageData;
 
   return (
     <Wrapper>
-      <Img fluid={panoramicImg} />
+      <GatsbyImage image={panoramicImg} alt="Vue panoramique sur la Dordogne" />
       <Title>{children}</Title>
     </Wrapper>
   );
 };
 
 export const query = graphql`
-  query {
+  {
     panoramicImgInfos: file(
       relativePath: { eq: "images/panoramic-infos.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 2880) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     panoramicImgIntro: file(
       relativePath: { eq: "images/panoramic-intro.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 2880) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }

@@ -28,7 +28,7 @@ const SectionContact = styled(Section)`
   }
 `;
 
-export default ({ data }) => {
+export default function contactPage({ data }) {
   const html = getHtmlData(data);
 
   return (
@@ -36,7 +36,7 @@ export default ({ data }) => {
       <SectionContact id="contact" dangerouslySetInnerHTML={{ __html: html }} />
     </Page>
   );
-};
+}
 
 export const query = graphql`
   query {

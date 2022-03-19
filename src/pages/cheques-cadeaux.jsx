@@ -10,7 +10,7 @@ const BuyButton = styled.div`
   margin: 0 auto 24px auto;
 `;
 
-export default ({ data }) => {
+export default function chequesCadeauxPage({ data }) {
   const html = getHtmlData(data);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default ({ data }) => {
       <BuyButton id="keb-but-frame971" />
     </Page>
   );
-};
+}
 
 export const query = graphql`
   query {
