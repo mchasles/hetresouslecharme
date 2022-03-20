@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import { Modal } from './Modal';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -95,7 +95,7 @@ const Photos = ({ title, photos: photosProp }) => {
             onClick={onArrowRight}
           >
             <CloseButton onClick={() => setIsModalOpen(false)} />
-            <GatsbyImage image={currentPhoto} objectFit="contain" alt={title} />
+            <PhotoImage image={currentPhoto} objectFit="contain" alt={title} />
           </PhotoWrapper>
           <NavButtonRight type="button" onClick={onArrowRight} />
         </Modal>
@@ -253,13 +253,26 @@ const PhotoWrapper = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   margin: 0 auto;
-  background-color: black;
   transform: scale(0.75);
 
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const PhotoImage = styled(GatsbyImage)`
+  animation: ${fadeIn} ease-in 0.6s;
 `;
 
 export default Photos;

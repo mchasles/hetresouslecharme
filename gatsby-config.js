@@ -36,6 +36,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `jpg`],
+          placeholder: 'blurred',
         },
       },
     },

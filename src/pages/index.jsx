@@ -143,12 +143,12 @@ export const query = graphql`
     }
     bgImg: file(relativePath: { eq: "images/home.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     logoImg: file(relativePath: { eq: "images/logo_white.png" }) {
       childImageSharp {
-        gatsbyImageData(width: 300, placeholder: BLURRED, layout: FIXED)
+        gatsbyImageData(width: 300, layout: FIXED)
       }
     }
     panoramicImg: file(relativePath: { eq: "images/panoramic.jpg" }) {
