@@ -19,6 +19,7 @@
     "gatsby-cli": "^4.10.1",
     "gatsby-plugin-image": "^2.10.0",
     "gatsby-plugin-netlify": "^4.1.0",
+    "gatsby-plugin-no-index": "^1.0.2",
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-sharp": "^4.10.1",
     "gatsby-plugin-styled-components": "^5.10.0",

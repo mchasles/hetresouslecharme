@@ -15,6 +15,7 @@ module.exports = {
       'Hetre sous le charme, Cabanes, perchees, arbres, Correze, Dordogne, hetresouslecharme.com, location, cabane, arbre, Le Bourg, Saint Martial, Entraygues, vacances, nature.',
   },
   plugins: [
+    'gatsby-plugin-no-index',
     'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-filesystem',
