@@ -31,7 +31,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `jpg`],
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
