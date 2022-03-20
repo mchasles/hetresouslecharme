@@ -9,7 +9,6 @@ import { device } from '../utils/media';
 const Photos = ({ title, photos: photosProp }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   const photos = photosProp
     .map(
@@ -25,7 +24,6 @@ const Photos = ({ title, photos: photosProp }) => {
 
   const onArrowLeft = useCallback(
     (e) => {
-      setIsLoading(true);
       e.stopPropagation();
       setCurrentPhotoIndex(
         currentPhotoIndex - 1 <= 0 ? photos.length - 1 : currentPhotoIndex - 1
@@ -36,7 +34,6 @@ const Photos = ({ title, photos: photosProp }) => {
 
   const onArrowRight = useCallback(
     (e) => {
-      setIsLoading(true);
       e.stopPropagation();
       setCurrentPhotoIndex(
         currentPhotoIndex + 1 < photos.length ? currentPhotoIndex + 1 : 0
@@ -98,24 +95,7 @@ const Photos = ({ title, photos: photosProp }) => {
             onClick={onArrowRight}
           >
             <CloseButton onClick={() => setIsModalOpen(false)} />
-            {isLoading ? (
-              <StyledSpinner viewBox="0 0 50 50">
-                <circle
-                  className="path"
-                  cx="25"
-                  cy="25"
-                  r="20"
-                  fill="none"
-                  strokeWidth="2"
-                />
-              </StyledSpinner>
-            ) : null}
-            <GatsbyImage
-              image={currentPhoto}
-              objectFit="contain"
-              onLoad={() => setIsLoading(false)}
-              alt={title}
-            />
+            <GatsbyImage image={currentPhoto} objectFit="contain" alt={title} />
           </PhotoWrapper>
           <NavButtonRight type="button" onClick={onArrowRight} />
         </Modal>
@@ -279,36 +259,6 @@ const PhotoWrapper = styled.div`
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
-  }
-`;
-
-const StyledSpinner = styled.svg`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-
-  & .path {
-    stroke: #fff;
-    stroke-linecap: round;
-    animation: dash 1s ease-in-out infinite;
-  }
-
-  @keyframes dash {
-    0% {
-      stroke-dasharray: 1, 150;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -35;
-    }
-    100% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -124;
-    }
   }
 `;
 
