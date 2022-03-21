@@ -3,29 +3,27 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import Page from '../components/Page';
+import Button from '../components/Button';
 import Section from '../components/Section';
 import { getHtmlData } from '../utils/data';
 
-const BuyButton = styled.div`
+const BookButton = styled(Button)`
   margin: 0 auto 24px auto;
 `;
 
 export default function chequesCadeauxPage({ data }) {
   const html = getHtmlData(data);
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src =
-      'https://widgets.ke-booking.com/fr/owner/site/widget/but/js/Pbb531d60f3d422680253fea8/971/GC/ke-booking.js';
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <Page>
       <Section id="contact" dangerouslySetInnerHTML={{ __html: html }} />
-
-      <BuyButton id="keb-but-frame971" />
+      <BookButton
+        href="https://reservation.v2.ke-booking.com/gc/property?pid=P9892150&krc=98defd6ee70dfb1dea416cecdf391f58&tok=Pbb531d60f3d422680253fea8&lang=fr"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Commander
+      </BookButton>
     </Page>
   );
 }
