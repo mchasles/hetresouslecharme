@@ -11,6 +11,7 @@ import EpiceaSouhait from '../components/nos-cabanes/EpiceaSouhait';
 import PinEnVert from '../components/nos-cabanes/PinEnVert';
 import HouxBlond from '../components/nos-cabanes/HouxBlond';
 import DesChesnaies from '../components/nos-cabanes/DesChesnaies';
+import SaulesAuMonde from '../components/nos-cabanes/SaulesAuMonde';
 import { ModalProvider } from '../components/Modal';
 
 const Section = styled.section`
@@ -79,7 +80,8 @@ export default function homePage({ data }) {
   const bgImg = data.bgImg.childImageSharp.gatsbyImageData;
   const logoImg = data.logoImg.childImageSharp.gatsbyImageData;
   const panoramicImg = data.panoramicImg.childImageSharp.gatsbyImageData;
-  const { epiceaSouhait, pinEnVert, houxBlond, desChesnaies } = data;
+  const { epiceaSouhait, pinEnVert, houxBlond, desChesnaies, saulesAuMonde } =
+    data;
 
   const headings = data.allMarkdownRemark.edges[0]?.node.headings.reduce(
     (acc, { depth, value }) => {
@@ -118,6 +120,7 @@ export default function homePage({ data }) {
           <BookButtonStyled />
           <Heading2 dangerouslySetInnerHTML={{ __html: headings[2] }} />
         </SectionPanoramic>
+        <SaulesAuMonde htmlContent={getHtml(saulesAuMonde)} />
         <EpiceaSouhait htmlContent={getHtml(epiceaSouhait)} />
         <PinEnVert htmlContent={getHtml(pinEnVert)} />
         <HouxBlond htmlContent={getHtml(houxBlond)} />
@@ -155,6 +158,11 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
+    }
+    saulesAuMonde: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/data/nos-cabanes/saules-au-monde/" } } }
+    ) {
+      ...CabinContent
     }
     desChesnaies: allMarkdownRemark(
       filter: { fields: { slug: { eq: "/data/nos-cabanes/des-chesnaies/" } } }
