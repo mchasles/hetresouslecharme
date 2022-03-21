@@ -15,6 +15,6 @@ date: '2020-01-20'
 - Minimum deux nuits en Juillet/Août.
 - 30€ par personne supplémentaire.
 - Prix pour deux personnes, petits déjeuners inclus livrés à votre cabane.
-- \* Prix pour quatre peronnes
+- \* Prix pour quatre personnes
 - Panier repas: 74€ pour deux personnes
 - Pack romantique: 22€

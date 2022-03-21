@@ -77,12 +77,12 @@ const Pinecone = styled.img`
     display: block;
     position: absolute;
     right: 4%;
-    top: 60%;
+    top: 74%;
     width: 24%;
   }
 `;
 
-const ToKnow = ({ id, htmlContent }) => (
+const ToKnow = ({ htmlContent }) => (
   <Wrapper>
     <Content
       id="a-savoir-avant-votre-sejour"
