@@ -90,8 +90,8 @@ const Photos = ({ title, photos: photosProp }) => {
         <Modal onOverlayClick={() => setIsModalOpen(false)}>
           <NavButtonLeft type="button" onClick={onArrowLeft} />
           <PhotoWrapper
-            width={aspectRatio > 1 ? '82vw' : `calc(82vh * ${aspectRatio})`}
-            height={aspectRatio > 1 ? `calc(82vw / ${aspectRatio})` : '82vh'}
+            width={aspectRatio > 1 ? '72vw' : `calc(82vh * ${aspectRatio})`}
+            height={aspectRatio > 1 ? `calc(72vw / ${aspectRatio})` : '82vh'}
             onClick={onArrowRight}
           >
             <CloseButton onClick={() => setIsModalOpen(false)} />

@@ -25,18 +25,18 @@ export default SaulesAuMonde;
 
 const query = graphql`
   query {
-    img: file(relativePath: { eq: "images/nos-cabanes/des_chesnaies.jpg" }) {
+    img: file(relativePath: { eq: "images/nos-cabanes/saules_au_monde.jpg" }) {
       ...CabinImage
     }
     logo: file(
-      relativePath: { eq: "images/nos-cabanes/logo-des_chesnaies.jpg" }
+      relativePath: { eq: "images/nos-cabanes/logo-saules_au_monde.jpg" }
     ) {
       ...CabinLogo
     }
     photos: allFile(
       filter: {
         extension: { regex: "/(jpg)|(jpeg)/" }
-        absolutePath: { regex: "/images/nos-cabanes/photos/des-chesnaies/" }
+        absolutePath: { regex: "/images/nos-cabanes/photos/saules-au-monde/" }
       }
     ) {
       ...CabinPhotos
