@@ -88,16 +88,14 @@ const Photos = ({ title, photos: photosProp }) => {
       ))}
       {isModalOpen && (
         <Modal onOverlayClick={() => setIsModalOpen(false)}>
-          <NavButtonLeft type="button" onClick={onArrowLeft} />
-          <PhotoWrapper
-            width={aspectRatio > 1 ? '72vw' : `calc(82vh * ${aspectRatio})`}
-            height={aspectRatio > 1 ? `calc(72vw / ${aspectRatio})` : '82vh'}
-            onClick={onArrowRight}
-          >
-            <CloseButton onClick={() => setIsModalOpen(false)} />
+          <PhotoWrapper>
             <PhotoImage image={currentPhoto} objectFit="contain" alt={title} />
           </PhotoWrapper>
-          <NavButtonRight type="button" onClick={onArrowRight} />
+          <NavWrapper>
+            <NavButtonLeft type="button" onClick={onArrowLeft} />
+            <CloseButton onClick={() => setIsModalOpen(false)} />
+            <NavButtonRight type="button" onClick={onArrowRight} />
+          </NavWrapper>
         </Modal>
       )}
     </Thumbnails>
@@ -114,6 +112,10 @@ const ThumbnailButton = styled.button`
     margin-right: 24px;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:active,
   &:focus {
     outline: 0;
@@ -122,6 +124,13 @@ const ThumbnailButton = styled.button`
   &:last-child {
     margin: 0;
   }
+`;
+
+const NavWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
 `;
 
 const NavButtonCommonStyles = css`
@@ -137,9 +146,13 @@ const NavButtonCommonStyles = css`
   background-color: rgba(0, 0, 0, 0.5);
 
   @media ${device.tablet}, (orientation: landscape) {
-    height: 8vw;
-    width: 8vw;
-    border-radius: 8vw;
+    height: 12vh;
+    width: 12vh;
+    border-radius: 12vh;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 
   &:before,
@@ -156,16 +169,13 @@ const NavButtonCommonStyles = css`
 `;
 
 const NavButton = styled.button`
-  position: absolute;
-  top: 50%;
   ${NavButtonCommonStyles};
 
   &:after {
     display: block;
-    position: absolute;
     content: ' ';
-    height: 2.4vw;
-    width: 2.4vw;
+    height: 28%;
+    width: 28%;
     background-color: transparent;
     border-color: white;
     border-style: solid;
@@ -178,17 +188,14 @@ const NavButton = styled.button`
 `;
 
 const CloseButton = styled.button`
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
   ${NavButtonCommonStyles};
-  transform: translate(50%, -50%);
+  margin: 0 1vw;
+  transform: scale(0.9);
 
   &:before,
   &:after {
     content: ' ';
-    height: 4vw;
+    height: 42%;
     width: 2px;
     background-color: white;
   }
@@ -208,9 +215,6 @@ const CloseButton = styled.button`
 `;
 
 const NavButtonLeft = styled(NavButton)`
-  left: 0;
-  transform: translate(-50%, -50%);
-
   &:after {
     border-width: 0 0 2px 2px;
     transform: translateX(25%) rotate(45deg);
@@ -218,9 +222,6 @@ const NavButtonLeft = styled(NavButton)`
 `;
 
 const NavButtonRight = styled(NavButton)`
-  right: 0;
-  transform: translate(50%, -50%);
-
   &:after {
     border-width: 2px 2px 0 0;
     transform: translateX(-25%) rotate(45deg);
@@ -245,15 +246,9 @@ const Thumbnail = styled(GatsbyImage)`
 `;
 
 const PhotoWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  margin: 0 auto;
-  transform: scale(0.75);
+  padding-top: 4vh;
+  width: 100vw;
+  height: 76vh;
 
   .gatsby-image-wrapper {
     width: 100%;
