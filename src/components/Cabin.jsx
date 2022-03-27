@@ -7,9 +7,17 @@ import { device } from '../utils/media';
 import BookButton from './BookButton';
 import Photos from './Photos';
 
-const Cabin = ({ id, title, reverse = false, html, img, photos }) => {
+const Cabin = ({
+  id,
+  className,
+  title,
+  reverse = false,
+  html,
+  img,
+  photos,
+}) => {
   return (
-    <Section id={id} reverse={reverse}>
+    <Section id={id} className={className} reverse={reverse}>
       <Content>
         <Description dangerouslySetInnerHTML={{ __html: html }} />
         <BookCabinButton />
@@ -85,14 +93,12 @@ const Content = styled.div`
     .gatsby-resp-image-wrapper {
       position: absolute !important;
       z-index: -1;
-      width: 60%;
+      width: 28vw;
       bottom: -28%;
-      right: -36%;
 
       @media ${device.mobileL} {
-        width: 80%;
-        bottom: -64%;
-        right: -46%;
+        width: 10vw;
+        bottom: -44%;
       }
     }
 
