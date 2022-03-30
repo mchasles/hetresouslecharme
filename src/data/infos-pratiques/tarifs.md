@@ -7,6 +7,7 @@ date: '2020-01-20'
 
 | Cabanes                    | Première nuit | Seconde nuit hors Juillet/Août et jours fériés | Haute saison |
 | -------------------------- | ------------- | ---------------------------------------------- | ------------ |
+| Saules au Monde            | 174€          | 174€                                           | 184€         |
 | Houx Blond<br> Pin en vert | 138€          | 120€                                           | 153€         |
 | Epicéa Souhait             | 144€          | 130€                                           | 159€         |
 | Familiale Des Chesnaies\*  | 210€          | 185€                                           | 225€         |
