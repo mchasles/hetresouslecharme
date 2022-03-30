@@ -27,14 +27,14 @@ date: '2020-01-20'
   _Arrivée_
   Merci de vous inscrire sur un créneau d'arrivée (16h-17h-18h ou 19h) et de nous prévenir 24h à l'avance.
 
-- ![Sanitaires](../../images/infos-pratiques/loo.png)
+- ![Petit-déjeuner](../../images/infos-pratiques/breakfast.png)
   _Petit-déjeuner_
   Le petit-déjeuner est automatiquement inclus dans toutes nos prestations.
 
-- ![Nature](../../images/infos-pratiques/squirrel.png)
+- ![Linge de maison](../../images/infos-pratiques/sheets.png)
   _Linge de maison_
   Les draps et serviettes vous seront fournis lors de votre séjour.
 
-- ![Panneaux solaire](../../images/infos-pratiques/agenda.png)
+- ![Moyens de paiement](../../images/infos-pratiques/no_credit_card.png)
   _Moyens de paiement_
   Nous acceptons les chèques bancaires et chèques vacances papier ANCV, mais nous ne disposons pas d’un lecteur de carte bancaire.

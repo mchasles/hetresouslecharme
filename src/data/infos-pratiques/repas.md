@@ -18,7 +18,7 @@ date: '2020-01-20'
 | --------------------------------------------------------------------------------------------------------------------------------- |
 | Variations saisonnières de tarte salée accompagnée d’une salade composée, fromages (Cantal, St Nectaire) |
 | Dessert gourmand du jour en supplément : 5€ par personne                                                                          |
-| **Disponible le midi et le soir (du 1er mai au 30 septembre)**                                                                    |                                                    |
+| **Disponible le midi et le soir (en juillet - août)**                                                                    |                                                    |
 
 Les produits sont issus des **producteurs de la région et cuisinés sur place le jour de votre repas, tout est fait maison**.
 
