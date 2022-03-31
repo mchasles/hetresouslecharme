@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Cabin from '../Cabin';
 import { getCabinImages } from '../../utils/data';
 import { device } from '../../utils/media';
+import new2022 from '../../images/new_2022.png';
 
 const CustomCabin = styled(Cabin)`
   h1 {
@@ -12,6 +13,18 @@ const CustomCabin = styled(Cabin)`
       right: -14vw;
       @media ${device.mobileL} {
         right: -5vw;
+      }
+    }
+    &::after {
+      position: absolute;
+      left: 0;
+      top: 60px;
+      content: url(${new2022});
+      width: 100px;
+      height: 100px;
+      @media ${device.mobileL} {
+        left: -110px;
+        top: -10px;
       }
     }
   }

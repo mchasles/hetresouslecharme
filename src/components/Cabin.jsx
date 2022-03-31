@@ -159,5 +159,5 @@ const Content = styled.div`
 `;
 
 const Description = styled.div`
-  z-index: 2;
+  z-index: 3;
 `;
