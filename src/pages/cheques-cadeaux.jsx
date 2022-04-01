@@ -8,7 +8,15 @@ import Section from '../components/Section';
 import { getHtmlData } from '../utils/data';
 
 const BookButton = styled(Button)`
-  margin: 0 auto 24px auto;
+  margin: -16px auto 24px auto;
+`;
+
+const SectionChequesCadeaux = styled(Section)`
+  .gatsby-resp-image-wrapper {
+    border: 8px solid white;
+    transform: scale(0.8) rotate(-4deg) translateX(-4%);
+    box-shadow: 1px 1px 4px #BBB;
+  }
 `;
 
 export default function chequesCadeauxPage({ data }) {
@@ -16,7 +24,10 @@ export default function chequesCadeauxPage({ data }) {
 
   return (
     <Page>
-      <Section id="contact" dangerouslySetInnerHTML={{ __html: html }} />
+      <SectionChequesCadeaux
+        id="contact"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
       <BookButton
         href="https://reservation.v2.ke-booking.com/gc/property?pid=P9892150&krc=98defd6ee70dfb1dea416cecdf391f58&tok=Pbb531d60f3d422680253fea8&lang=fr"
         target="_blank"

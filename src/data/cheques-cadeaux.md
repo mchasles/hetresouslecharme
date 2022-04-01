@@ -18,5 +18,4 @@ Nuit de noces, fiançailles, anniversaires , toutes les occasions sont bonnes, n
 Les chèques cadeaux sont réservables directement en ligne comme pour une réservation classique. Il suffit d’indiquer le numéro du chèque cadeau dans le champ « commentaire » et de sélectionner l’option « autre moyen de paiement » au moment de finaliser la réservation.
 
 Nous sommes également disponibles par téléphone.
-<br /><br />
-![Cheque cadeau](../images/cheque-cadeau.png)
+![Cheque cadeau](../images/cheque-cadeau.jpg)
