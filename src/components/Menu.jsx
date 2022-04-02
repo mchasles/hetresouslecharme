@@ -12,8 +12,7 @@ import { device } from '../utils/media';
 import dataMenu from '../data/menu.yaml';
 import BookButton from './BookButton';
 
-export const getLink = str => /^(.*)\((.*)\)$/.exec(str)[2];
-export const getLabel = str => /^(.*)\((.*)\)$/.exec(str)[1];
+const menuRegEx = /^(-new-)?(.*)\((.*)\)$/;
 
 const HamburgerButton = styled.button`
   position: fixed;
@@ -302,6 +301,33 @@ const ListLink = styled(Link)`
 const SubList = styled.ul`
   margin-bottom: 18px;
 
+  li.new {
+    position: relative;
+    margin-bottom: 12px;
+
+    &::after {
+      content: 'Nouveauté 2022';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 50%);
+
+      display: block;
+      width: 80%;
+      padding: 2px;
+      text-align: center;
+
+      background-color: rgb(165, 188, 84);
+      color: white;
+      border: 1px solid #fff;
+      
+      font-size: 60%;
+      font-style: italic;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
   @media ${device.tablet} {
     position: absolute;
     top: 52px;
@@ -359,35 +385,40 @@ const Menu = () => {
             <img src={homeLogo} alt="Logo" />
           </ListHomeLink>
         </ListItem>
-        {dataMenu.map((value, key) => {
+        {dataMenu.map((value) => {
           const hasSubMenu = typeof value === 'object';
-          const label = hasSubMenu ? Object.keys(value)[0] : value;
-          const link = getLink(label);
+          const menuItem = hasSubMenu ? Object.keys(value)[0] : value;
+          const [, , label, link] = menuRegEx.exec(menuItem);
 
           const subMenu = hasSubMenu ? (
             <SubList>
-              {value[label].map((subLabel, index) => (
-                <li key={getLink(subLabel)}>
-                  <SubListLink
-                    to={getLink(subLabel)}
-                    onClick={() => {
-                      setIsOpen(false);
-                      if (index === 0) {
-                        scrollTop();
-                      }
-                    }}
-                  >
-                    {getLabel(subLabel)}
-                  </SubListLink>
-                </li>
-              ))}
+              {value[menuItem].map((subMenuItem, index) => {
+                const [, isNew, subLabel, subLink] =
+                  menuRegEx.exec(subMenuItem);
+                return (
+                  <li key={subLink} className={isNew ? 'new' : null}>
+                    <SubListLink
+                      to={subLink}
+                      onClick={() => {
+                        setIsOpen(false);
+                        if (index === 0) {
+                          scrollTop();
+                        }
+                      }}
+                    >
+                      {subLabel}
+                    </SubListLink>
+                  </li>
+                );
+              })}
             </SubList>
           ) : null;
+
           return (
             <ListItem
               key={link}
               id={link}
-              onClick={event => {
+              onClick={(event) => {
                 if (window.innerWidth < mobileBreakpoint && hasSubMenu) {
                   event.stopPropagation();
                   setExpandedId(expandedId === link ? null : link);
@@ -398,14 +429,14 @@ const Menu = () => {
               className={classNames({ expanded: expandedId === link })}
             >
               <ListLink
-                onClick={event => {
+                onClick={(event) => {
                   if (window.innerWidth < mobileBreakpoint && hasSubMenu) {
                     event.preventDefault();
                   }
                 }}
                 to={link}
               >
-                {getLabel(label)}
+                {label}
               </ListLink>
               {subMenu}
             </ListItem>
