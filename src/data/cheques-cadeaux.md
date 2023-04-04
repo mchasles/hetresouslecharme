@@ -8,7 +8,7 @@ date: '2020-01-20'
 Vous cherchez un cadeau atypique ?
 Offrez un souvenir inoubliable: une nuit dans les arbres.
 
-Nos chèques cadeaux sont valables 12 mois, entièrement personnalisables :
+Nos chèques cadeaux sont valables 13 mois, entièrement personnalisables :
 une nuit dans une cabane, panier repas, pack romantique, champagne, etc...
 
 Nuit de noces, fiançailles, anniversaires , toutes les occasions sont bonnes, n'hésitez pas à [nous contacter](/contact).
